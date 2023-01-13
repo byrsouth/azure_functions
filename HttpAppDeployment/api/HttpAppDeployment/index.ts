@@ -1,33 +1,36 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
-const deployData = {
+interface DeployData {
    commit: {
       author: {
-         email: 'byron.southerland@icloud.com',
-         name: 'Byron',
-         username: 'byrsouth',
-         id: '372fd4511615e1928166130c45c6c8dde47da4be',
-         timestamp: '2023-01-09T21:18:08-05:00',
+         email: string,
+         name: string,
+         username: string,
+         id: string,
+         timestamp: string,
       },
    },
-   branch: 'master',
+   branch: string,
 };
 
 const httpTrigger: AzureFunction = async function (
    context: Context,
    req: HttpRequest
 ): Promise<void> {
-   context.log('HTTP trigger function processed a request.');
-   // const name = (req.query.name || (req.body && req.body.name));
+   context.log('HTTP trigger function processed a request.');   
    const commitData = req.body ? req.body : {};
-   context.bindings.outputDocument = commitData;
-   //  context.bindings.outputDocument = JSON.stringify(commitData);
-   const responseMessage = JSON.stringify(commitData);
+   saveDeployInfo(commitData, context);
 
+   const responseMessage = JSON.stringify(commitData);   
    context.res = {
       // status: 200, /* Defaults to 200 */
-      body: req.body
-   };
+      body: responseMessage
+   };   
 };
+
+function saveDeployInfo(deployData: DeployData, context: Context): void{   
+   context.bindings.outputDocument =deployData;
+}
+
 
 export default httpTrigger;
