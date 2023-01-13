@@ -20,9 +20,9 @@ const httpTrigger: AzureFunction = async function (
    context.log('HTTP trigger function processed a request.');
    // const name = (req.query.name || (req.body && req.body.name));
    const commitData = req.body ? req.body : {};
-   context.bindings.outputDocument = JSON.stringify(commitData);
-   //  context.bindings.outputDocument = JSON.stringify(deployData);
-   const responseMessage = commitData;
+   context.bindings.outputDocument = commitData;
+   //  context.bindings.outputDocument = JSON.stringify(commitData);
+   const responseMessage = JSON.stringify(commitData);
 
    context.res = {
       // status: 200, /* Defaults to 200 */
