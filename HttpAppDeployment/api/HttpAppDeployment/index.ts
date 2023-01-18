@@ -30,4 +30,9 @@ const httpTrigger: AzureFunction = async function (
    };
 };
 
+function saveDeployInfo(deployData: DeployData, context: Context): void{   
+   context.bindings.outputDocument =deployData;
+}
+
+
 export default httpTrigger;
