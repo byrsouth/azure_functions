@@ -17,13 +17,14 @@
     },
     {
       "type": "cosmosDB",
-      "direction": "out",
-      "name": "outputDocument",
+      "direction": "in",
+      "name": "inputDocument",
       "databaseName": "byrsouthdb",
       "collectionName": "appDocuments",
-      "createIfNotExists": true,
-      "connectionStringSetting": "byrsouthdb_DOCUMENTDB"
+      "connectionStringSetting": "byrsouthdb_DOCUMENTDB",
+      "id": "id"
+     
     }
   ],
-  "scriptFile": "../dist/HttpAppDeployment/index.js"
+  "scriptFile": "../dist/HttpAppDeploymentOut/index.js"
 }
