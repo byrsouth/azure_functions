@@ -1,18 +1,18 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
-interface DeployData {
-   commit: {
-      author: {
-         email: string;
-         name: string;
-         username: string;
-         id: string;
-         timestamp: string;
-      };
-   };
+export interface DeployData {
+   project: string;
+   deployEnv: string;
+   tagName: string;
+   version :string
    branch: string;
+   commit: {
+      id: string;
+      userName: string;
+      branchURL: string;
+      commitURL: string;
+   };
 }
-
 
 const httpTrigger: AzureFunction = async function (
    context: Context,
