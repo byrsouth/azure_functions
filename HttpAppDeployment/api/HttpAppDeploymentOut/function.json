@@ -19,11 +19,10 @@
       "type": "cosmosDB",
       "direction": "in",
       "name": "inputDocument",
-      "databaseName": "byrsouthdb",
-      "collectionName": "appDocuments",
+      "databaseName": "DeployDataDB",
+      "collectionName": "deployments",
       "connectionStringSetting": "byrsouthdb_DOCUMENTDB",
-      "id": "id"
-     
+      "partitionKey": "id"
     }
   ],
   "scriptFile": "../dist/HttpAppDeploymentOut/index.js"

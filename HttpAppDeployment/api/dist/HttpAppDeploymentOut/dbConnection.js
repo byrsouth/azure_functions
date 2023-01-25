@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.find = void 0;
 const cosmos_1 = require("@azure/cosmos");
 const inspector_1 = require("inspector");
-const COSMOS_DB_RESOURCE_NAME = 'byrsouthdb';
-const COSMOS_DB_RESOURCE_KEY = 'injiqL1rMDtbA8XsRDt56HUlZ430dY7zL5lHn0UP86IdDFo5qmi36UW1zXrR0qE1GEdxkBvN92EHACDb9ZJAMg==';
+const COSMOS_DB_RESOURCE_NAME = 'byrsouthCosmos';
+const COSMOS_DB_RESOURCE_KEY = 'SkAD8ssgZXS20I1et846YnRjt468HEAT4DAqJDZkE8KUldhr4NDCin88Syf6BQju5WAbuAqk0kSiACDbtRY4QA==';
 let db;
 let container;
 let client;
@@ -21,7 +21,7 @@ const config = {
     COSMOSDB_SQL_API_URI: `https://${COSMOS_DB_RESOURCE_NAME}.documents.azure.com:443/`,
     COSMOSDB_SQL_API_KEY: COSMOS_DB_RESOURCE_KEY,
     COSMOSDB_SQL_API_DATABASE_NAME: 'byrsouthdb',
-    COSMOSDB_SQL_API_CONTAINER_NAME: 'appDocuments',
+    COSMOSDB_SQL_API_CONTAINER_NAME: 'deployments',
 };
 const connect = () => {
     try {
@@ -67,6 +67,7 @@ function find(...params) {
             '/' +
             config.COSMOSDB_SQL_API_CONTAINER_NAME);
         let query = params[0];
+        console.log(`query = ${query}`);
         if (query == null) {
             query = 'SELECT * from c';
         }

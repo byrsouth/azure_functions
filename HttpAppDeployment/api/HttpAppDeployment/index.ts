@@ -1,18 +1,18 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
 interface DeployData {
-   commit: {
-      author: {
-         email: string;
-         name: string;
-         username: string;
-         id: string;
-         timestamp: string;
-      };
-   };
+   project: string;
+   deployEnv: string;
+   tagName: string;
    branch: string;
+   version?: string;
+   commit: {
+      id: string;
+      userName: string;
+      branchURL: string;
+      commitURL: string;
+   };
 }
-
 
 const httpTrigger: AzureFunction = async function (
    context: Context,
@@ -24,15 +24,10 @@ const httpTrigger: AzureFunction = async function (
 
    context.bindings.outputDocument = commitData;
    const responseMessage = commitData;
-   context.res = {
-      // status: 200, /* Defaults to 200 */
-      body: req.body,
-   };
 };
 
-function saveDeployInfo(deployData: DeployData, context: Context): void{   
-   context.bindings.outputDocument =deployData;
+function saveDeployInfo(deployData: DeployData, context: Context): void {
+   context.bindings.outputDocument = deployData;
 }
-
 
 export default httpTrigger;
