@@ -1,9 +1,9 @@
 import { Container, CosmosClient, Database } from '@azure/cosmos';
 import { waitForDebugger } from 'inspector';
 
-const COSMOS_DB_RESOURCE_NAME = 'byrsouthCosmos';
+const COSMOS_DB_RESOURCE_NAME = 'byrsouth-db';
 const COSMOS_DB_RESOURCE_KEY =
-   'SkAD8ssgZXS20I1et846YnRjt468HEAT4DAqJDZkE8KUldhr4NDCin88Syf6BQju5WAbuAqk0kSiACDbtRY4QA==';
+   'dAL41yw8cKY4S8JdPopD86e00rEk2Us0ihQYFwWiy4BT1V9f7nldpyu436kung7dGa4F0CnzK8rMACDbNIzvjA==';
 
 let db: Database;
 let container: Container;
@@ -12,7 +12,7 @@ let client: CosmosClient | undefined;
 const config = {
    COSMOSDB_SQL_API_URI: `https://${COSMOS_DB_RESOURCE_NAME}.documents.azure.com:443/`,
    COSMOSDB_SQL_API_KEY: COSMOS_DB_RESOURCE_KEY,
-   COSMOSDB_SQL_API_DATABASE_NAME: 'byrsouthdb',
+   COSMOSDB_SQL_API_DATABASE_NAME: 'AppDeployDB',
    COSMOSDB_SQL_API_CONTAINER_NAME: 'deployments',
 };
 

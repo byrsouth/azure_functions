@@ -12,15 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.find = void 0;
 const cosmos_1 = require("@azure/cosmos");
 const inspector_1 = require("inspector");
-const COSMOS_DB_RESOURCE_NAME = 'byrsouthCosmos';
-const COSMOS_DB_RESOURCE_KEY = 'SkAD8ssgZXS20I1et846YnRjt468HEAT4DAqJDZkE8KUldhr4NDCin88Syf6BQju5WAbuAqk0kSiACDbtRY4QA==';
+const COSMOS_DB_RESOURCE_NAME = 'byrsouth-db';
+const COSMOS_DB_RESOURCE_KEY = 'dAL41yw8cKY4S8JdPopD86e00rEk2Us0ihQYFwWiy4BT1V9f7nldpyu436kung7dGa4F0CnzK8rMACDbNIzvjA==';
 let db;
 let container;
 let client;
 const config = {
     COSMOSDB_SQL_API_URI: `https://${COSMOS_DB_RESOURCE_NAME}.documents.azure.com:443/`,
     COSMOSDB_SQL_API_KEY: COSMOS_DB_RESOURCE_KEY,
-    COSMOSDB_SQL_API_DATABASE_NAME: 'byrsouthdb',
+    COSMOSDB_SQL_API_DATABASE_NAME: 'AppDeployDB',
     COSMOSDB_SQL_API_CONTAINER_NAME: 'deployments',
 };
 const connect = () => {

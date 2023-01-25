@@ -19,7 +19,7 @@
       "type": "cosmosDB",
       "direction": "in",
       "name": "inputDocument",
-      "databaseName": "DeployDataDB",
+      "databaseName": "AppDeployDB",
       "collectionName": "deployments",
       "connectionStringSetting": "byrsouthdb_DOCUMENTDB",
       "partitionKey": "id"
